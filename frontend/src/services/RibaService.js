@@ -2,7 +2,7 @@ import { HttpService } from "./HttpService";
 
 
 async function get(){
-    return await HttpService.get('/Smjer')
+    return await HttpService.get('/Riba')
     .then((odgovor)=>{
         //console.table(odgovor.data)
         return odgovor.data;
@@ -11,7 +11,7 @@ async function get(){
 }
 
 async function getBySifra(sifra){
-    return await HttpService.get('/Smjer/' + sifra)
+    return await HttpService.get('/Riba/' + sifra)
     .then((odgovor)=>{
         return odgovor.data;
     })
@@ -19,20 +19,20 @@ async function getBySifra(sifra){
 }
 
 
-async function dodaj(smjer){
-    return HttpService.post('/Smjer',smjer)
+async function dodaj(riba){
+    return HttpService.post('/Riba',riba)
     .then(()=>{return {greska: false, poruka: 'Dodano'}})
     .catch(()=>{return {greska: true, poruka:'Problem kod dodavanja'}})
 }
 
-async function promjena(sifra,smjer){
-    return HttpService.put('/Smjer/'+sifra,smjer)
+async function promjena(riba, riba){
+    return HttpService.put('/Riba/'+sifra,riba)
     .then(()=>{return {greska: false, poruka: 'Promjenjeno'}})
     .catch(()=>{return {greska: true, poruka:'Problem kod promjene'}})
 }
 
 async function obrisi(sifra){
-    return HttpService.delete('/Smjer/'+sifra)
+    return HttpService.delete('/Riba/'+sifra)
     .then(()=>{return {greska: false, poruka: 'Obrisano'}})
     .catch(()=>{return {greska: true, poruka:'Problem kod brisanja'}})
 }
