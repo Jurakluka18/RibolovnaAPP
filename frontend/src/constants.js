@@ -6,4 +6,4 @@ export const RouteNames={
     RIBA_PROMJENA: '/ribe/:sifra'
 }
 
-export const PRODUKCIJA='http://jurakluka18-001-site1.ptempurl.com/';
+export const PRODUKCIJA='https://jurakluka18-001-site1.ptempurl.com';

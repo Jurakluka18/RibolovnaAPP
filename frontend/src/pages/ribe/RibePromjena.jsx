@@ -1,8 +1,7 @@
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { RouteNames } from "../../constants";
-import moment from "moment";
-import SmjerService from "../../services/RibaService";
+import RibaService from "../../services/RibaService";
 import { useEffect, useState } from "react";
 
 
@@ -15,7 +14,7 @@ export default function RibePromjena(){
 
     async function dohvatiRibu(){
         const odgovor = await RibaService.getBySifra(routeParams.sifra)
-
+        setRiba(odgovor)
        
     }
 
@@ -39,7 +38,7 @@ export default function RibePromjena(){
 
         promjena(
             {
-                naziv: podaci.get('naziv'),
+                naziv: podaci.get('naziv')
                
             }
         );

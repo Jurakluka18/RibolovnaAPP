@@ -25,7 +25,7 @@ async function dodaj(riba){
     .catch(()=>{return {greska: true, poruka:'Problem kod dodavanja'}})
 }
 
-async function promjena(riba, riba){
+async function promjena(sifra, riba){
     return HttpService.put('/Riba/'+sifra,riba)
     .then(()=>{return {greska: false, poruka: 'Promjenjeno'}})
     .catch(()=>{return {greska: true, poruka:'Problem kod promjene'}})

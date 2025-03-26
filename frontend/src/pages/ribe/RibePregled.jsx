@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react"
 import RibaService from "../../services/RibaService"
 import { Button, Table } from "react-bootstrap";
-import { NumericFormat } from "react-number-format";
-import moment from "moment";
-import { GrValidate } from "react-icons/gr";
 import { Link, useNavigate } from "react-router-dom";
 import { RouteNames } from "../../constants";
 

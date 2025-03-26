@@ -1,7 +1,6 @@
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { RouteNames } from "../../constants";
-import moment from "moment";
 import RibaService from "../../services/RibaService";
 
 
@@ -27,47 +26,43 @@ export default function RibeDodaj() {
         });
     }
 
-    return (
-        <form onSubmit={odradiSubmit}>
-            <input type="text" name="naziv" placeholder="Unesite naziv ribe" required />
-            <button type="submit">Dodaj</button>
-        </form>
-    );
+    return(
+        <>
+        Dodavanje ribe
+        <Form onSubmit={odradiSubmit}>
+    
+            <Form.Group controlId="naziv">
+                <Form.Label>Naziv</Form.Label>
+                <Form.Control type="text" name="naziv" required />
+            </Form.Group>
+    
+         
+            <hr/>
+    
+            <Row>
+                <Col xs={6} sm={6} md={3} lg={2} xl={6} xxl={6}>
+                    <Link
+                    to={RouteNames.RIBA_PREGLED}
+                    className="btn btn-danger siroko"
+                    >Odustani</Link>
+                </Col>
+                <Col xs={6} sm={6} md={9} lg={10} xl={6} xxl={6}>
+                    <Button variant="success" type="submit" className="siroko">
+                        Dodaj ribu
+                    </Button>
+                </Col>
+            </Row>
+    
+    
+        </Form>
+    
+    
+    
+    
+       
+        </>
+        )
+    
 }
 
-    return(
-    <>
-    Dodavanje ribe
-    <Form onSubmit={odradiSubmit}>
-
-        <Form.Group controlId="naziv">
-            <Form.Label>Naziv</Form.Label>
-            <Form.Control type="text" name="naziv" required />
-        </Form.Group>
-
-     
-        <hr/>
-
-        <Row>
-            <Col xs={6} sm={6} md={3} lg={2} xl={6} xxl={6}>
-                <Link
-                to={RouteNames.RIBA_PREGLED}
-                className="btn btn-danger siroko"
-                >Odustani</Link>
-            </Col>
-            <Col xs={6} sm={6} md={9} lg={10} xl={6} xxl={6}>
-                <Button variant="success" type="submit" className="siroko">
-                    Dodaj ribu
-                </Button>
-            </Col>
-        </Row>
-
-
-    </Form>
-
-
-
-
-   
-    </>
-    )
+    
