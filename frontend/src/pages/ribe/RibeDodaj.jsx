@@ -5,30 +5,35 @@ import moment from "moment";
 import RibaService from "../../services/RibaService";
 
 
-export default function RibeDodaj(){
-
+export default function RibeDodaj() {
     const navigate = useNavigate();
 
-    async function dodaj(riba){
+    async function dodaj(riba) {
         const odgovor = await RibaService.dodaj(riba);
-        if(odgovor.greska){
-            alert(odgovor.poruka)
-            return
+        if (odgovor.greska) {
+            alert(odgovor.poruka);
+            return;
         }
-        navigate(RouteNames.RIBA_PREGLED)
+        navigate(RouteNames.RIBA_PREGLED);
     }
 
-    function odradiSubmit(e){ // e je event
-        e.preventDefault(); // nemoj odraditi zahtjev na server pa standardnom načinu
+    function odradiSubmit(e) {
+        e.preventDefault(); // Sprečava podrazumijevano slanje obrasca
 
         let podaci = new FormData(e.target);
 
-        dodaj(
-            
-                naziv: podaci.get('naziv'),
-                
-        );
+        dodaj({
+            naziv: podaci.get('naziv'),
+        });
     }
+
+    return (
+        <form onSubmit={odradiSubmit}>
+            <input type="text" name="naziv" placeholder="Unesite naziv ribe" required />
+            <button type="submit">Dodaj</button>
+        </form>
+    );
+}
 
     return(
     <>
@@ -66,4 +71,3 @@ export default function RibeDodaj(){
    
     </>
     )
-}
